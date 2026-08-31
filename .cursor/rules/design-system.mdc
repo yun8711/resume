@@ -1,0 +1,28 @@
+---
+description: 个人简历站的视觉与内容规范。改 UI 或简历文案前必须遵守。
+alwaysApply: true
+---
+
+# Design system
+
+改任何页面或组件前，先读 [`design-system/MASTER.md`](design-system/MASTER.md)。其中的 token、布局家族、动效和禁令是最终裁决。
+
+## 硬规则
+
+- 深色锁定。唯一强调色 `--color-accent`。CTA / chip 用胶囊，其余直角。
+- 字体：Geist + Geist Mono（`@fontsource-variable`）。不要 Inter、serif、Google Fonts `<link>`。
+- 图标：`@phosphor-icons/react`，`weight="regular"`。
+- 简历事实只改 `src/data/resume.ts`。组件只负责排版。
+- 用户可见文案禁止 `—` / `–`。
+- 动效只用 CSS 的 transform/opacity，并尊重 `prefers-reduced-motion`。
+- 作品区必须是带链接的列表，不要三列等卡片、假截图、假终端。
+
+```tsx
+// ❌ 组件内写死项目
+<div>yun-elp 是一个组件库</div>
+
+// ✅ 从 resume 数据渲染
+{resume.projects.map((project) => (
+  <ProjectRow key={project.name} project={project} />
+))}
+```
