@@ -34,9 +34,8 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v6
-        with:
-          # 勿用 latest：pnpm 11+ 需 Node >= 22.13，与 lockfile v9 及本地环境对齐
-          version: 10
+        # 版本只写在 package.json 的 packageManager，勿再填 version
+        # 否则 pnpm/action-setup@v6 会报 Multiple versions of pnpm specified
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
