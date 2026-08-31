@@ -1,16 +1,14 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 
-/**
- * GitHub Pages 子路径部署时改为仓库名，例如 base: "/resume/"
- * 用户页（username.github.io）根部署时用 base: "/"
- */
+// 项目部署的相对 url。仓库名不是 resume 时改这里。
+const baseUrl = '/resume/';
+
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "./",
-  build: {
-    outDir: "dist",
-    emptyOutDir: true,
-  },
+  base: baseUrl,
+  server: {
+    open: baseUrl
+  }
 });

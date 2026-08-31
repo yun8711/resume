@@ -3,7 +3,12 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Personal online resume — GitHub Pages",
+  "description": "个人在线简历",
+  "homepage": "https://yun8711.github.io/resume/",
+  "packageManager": "pnpm@10.30.3",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
